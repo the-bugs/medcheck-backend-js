@@ -1,0 +1,15 @@
+{
+  "name": "medcheck-backend-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "test"
+  },
+  "author": "Matheus Victor",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
