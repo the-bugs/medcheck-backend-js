@@ -4,15 +4,6 @@ const Usuario = require('../models/usuario');
 const router = Router();
 
 router.get('/usuarios', async (req, res) => {
-    try {
-        const usuarios = await Usuario.findAll();
-        return res.status(200).json(usuarios);
-    } catch (error) {
-        return res.status(500).json({ message: "Um erro aconteceu." });
-    }
-});
-
-router.get('/usuarios/:id', async (req, res) => {
     const { id } = req.params;
     try {
         if (id) {
@@ -22,9 +13,11 @@ router.get('/usuarios/:id', async (req, res) => {
             } else {
                 res.status(404).json({ message: "Usuário não encontrado." });
             }
-        } else {
-            res.status(400).json({ message: "Dados incompletos." });
         }
+
+        const usuarios = await Usuario.findAll();
+        return res.status(200).json(usuarios);
+
     } catch (error) {
         res.status(500).json({ message: "Um erro aconteceu." });
     }
