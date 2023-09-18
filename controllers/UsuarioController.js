@@ -46,9 +46,15 @@ class UsuarioController {
 
   static async criarUsuario(request, response) {
     const { nome, email, senha, funcao } = request.body;
+
     if (nome && email && senha && funcao) {
       try {
-        const usuario = await database.Usuario.create(dadosNovoUsuario);
+        const usuario = await database.Usuario.create({
+          nome,
+          email,
+          senha,
+          funcao,
+        });
         return response.status(201).json(usuario);
       } catch (error) {
         return response.status(500).json(error.message);
