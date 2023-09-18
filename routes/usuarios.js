@@ -6,6 +6,7 @@ const router = Router();
 
 router.get("/usuarios", UsuarioController.listarUsuarios);
 router.get("/usuarios/:id", UsuarioController.obterUsuarioPorId);
+router.post("/usuarios", UsuarioController.criarUsuario);
 
 router.post("/usuarios", async (req, res) => {
   try {

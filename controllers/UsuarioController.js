@@ -6,7 +6,7 @@ class UsuarioController {
       const usuarios = await database.Usuario.findAll();
       return response.status(200).json(usuarios);
     } catch (error) {
-      return response.status(590).json(error.message);
+      return response.status(500).json(error.message);
     }
   }
 
@@ -23,10 +23,24 @@ class UsuarioController {
           .status(404)
           .json({ message: "Usuário não encontrado." });
       }
-      
+
       return response.status(200).json(usuario);
     } catch (error) {
       return response.status(590).json(error.message);
+    }
+  }
+
+  static async criarUsuario(request, response) {
+    const { nome, email, senha, funcao } = request.body;
+    if (nome && email && senha && funcao) {
+      try {
+        const usuario = await database.Usuario.create(dadosNovoUsuario);
+        return response.status(201).json(usuario);
+      } catch (error) {
+        return response.status(500).json(error.message);
+      }
+    } else {
+      return response.status(400).json({ message: "Dados incompletos." });
     }
   }
 }
