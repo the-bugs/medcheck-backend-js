@@ -63,6 +63,23 @@ class UsuarioController {
       return response.status(400).json({ message: "Dados incompletos." });
     }
   }
+
+  static async atualizarUsuario(request, response) {
+    const { id } = request.params;
+    const dadosAtualizados = request.body;
+
+    try {
+      await database.Usuario.update(dadosAtualizados, {
+        where: { id: Number(id) },
+      });
+      const usuarioAtualizado = await database.Usuario.findOne({
+        where: { id: Number(id) },
+      });
+      return response.status(200).json(usuarioAtualizado);
+    } catch (error) {
+      return response.status(500).json(error.message);
+    }
+  }
 }
 
 module.exports = UsuarioController;
