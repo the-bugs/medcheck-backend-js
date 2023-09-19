@@ -75,12 +75,10 @@ class UsuarioController {
     });
 
     if (usuario.funcao === "admin") {
-      return response
-        .status(403)
-        .json({
-          message:
-            "Usuários com privilégios administrativos naõ podem ser removidos!",
-        });
+      return response.status(403).json({
+        message:
+          "Usuários com privilégios administrativos naõ podem ser removidos!",
+      });
     }
 
     try {
