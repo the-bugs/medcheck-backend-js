@@ -32,20 +32,6 @@ class UsuarioController {
 
   static async criarUsuario(request, response) {
     const { nome, email, senha, funcao } = request.body;
-    if (nome && email && senha && funcao) {
-      try {
-        const usuario = await database.Usuario.create(dadosNovoUsuario);
-        return response.status(201).json(usuario);
-      } catch (error) {
-        return response.status(500).json(error.message);
-      }
-    } else {
-      return response.status(400).json({ message: "Dados incompletos." });
-    }
-  }
-
-  static async criarUsuario(request, response) {
-    const { nome, email, senha, funcao } = request.body;
 
     if (nome && email && senha && funcao) {
       try {
