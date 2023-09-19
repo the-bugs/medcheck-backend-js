@@ -66,6 +66,40 @@ class UsuarioController {
       return response.status(500).json(error.message);
     }
   }
+
+  static async excluirUsuarioPorId(request, response) {
+    const { id } = request.params;
+
+    const usuario = await database.Usuario.findOne({
+      where: { id: Number(id) },
+    });
+
+    if (usuario.funcao === "admin") {
+      return response
+        .status(403)
+        .json({
+          message:
+            "Usuários com privilégios administrativos naõ podem ser removidos!",
+        });
+    }
+
+    try {
+      if (usuario == null) {
+        return response
+          .status(404)
+          .json({ message: "Usuário não encontrado." });
+      }
+
+      await database.Usuario.destroy({
+        where: { id: Number(id) },
+      });
+      return response
+        .status(200)
+        .json({ message: `Usuário com ID ${id} foi deletado!` });
+    } catch (error) {
+      return response.status(590).json(error.message);
+    }
+  }
 }
 
 module.exports = UsuarioController;
