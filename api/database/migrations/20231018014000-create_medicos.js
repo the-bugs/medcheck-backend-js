@@ -4,7 +4,7 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable("Medicos", {
-      idMedico: {
+      id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -40,7 +40,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: "Especialidades",
-          key: "idEspecialidade",
+          key: "id",
         },
       },
       createdAt: {
