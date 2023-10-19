@@ -18,7 +18,7 @@ class EspecialidadeController {
         where: { nome: nome },
       });
 
-      if (especialidadesPorNome.length === 0) {
+      if (especialidadesPorNome == null) {
         return response.status(404).json({
           message: "Especialidade não encontrada para o nome fornecido.",
         });
