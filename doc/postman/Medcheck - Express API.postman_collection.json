@@ -7,110 +7,389 @@
 	},
 	"item": [
 		{
-			"name": "usuarios",
+			"name": "especialidades",
 			"item": [
 				{
-					"name": "Listar usuários",
+					"name": "Listar todas as especialidades",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3001/usuarios",
+							"raw": "http://localhost:3001/especialidades",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3001",
 							"path": [
-								"usuarios"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Listar usuário por ID",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3001/usuarios/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3001",
-							"path": [
-								"usuarios",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Cadastrar admin",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Rony\",\r\n    \"email\": \"oruivo@hogwarts.magic\",\r\n    \"senha\": \"malfeitofeito\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3001/admins",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3001",
-							"path": [
-								"admins"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Cadastrar usuário",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3001/usuarios",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3001",
-							"path": [
-								"usuarios"
+								"especialidades"
 							]
 						}
 					},
 					"response": [
 						{
-							"name": "Requisição com sucesso",
+							"name": "Listar todas as especialidades",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/especialidades",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"especialidades"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "643"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"283-zrWRQQlXdn6fxZi2pCsgInnkHGY\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Oct 2023 00:39:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"nome\": \"Cardiologia\",\n        \"createdAt\": \"2023-10-18T18:36:49.003Z\",\n        \"updatedAt\": \"2023-10-18T18:36:49.003Z\"\n    },\n    {\n        \"id\": 2,\n        \"nome\": \"Dermatologia\",\n        \"createdAt\": \"2023-10-18T18:36:49.003Z\",\n        \"updatedAt\": \"2023-10-18T18:36:49.003Z\"\n    },\n    {\n        \"id\": 3,\n        \"nome\": \"Ortopedia\",\n        \"createdAt\": \"2023-10-18T18:36:49.003Z\",\n        \"updatedAt\": \"2023-10-18T18:36:49.003Z\"\n    },\n    {\n        \"id\": 4,\n        \"nome\": \"Pediatria\",\n        \"createdAt\": \"2023-10-18T18:36:49.003Z\",\n        \"updatedAt\": \"2023-10-18T18:36:49.003Z\"\n    },\n    {\n        \"id\": 5,\n        \"nome\": \"Ginecologia\",\n        \"createdAt\": \"2023-10-18T18:36:49.003Z\",\n        \"updatedAt\": \"2023-10-18T18:36:49.003Z\"\n    },\n    {\n        \"id\": 6,\n        \"nome\": \"Dentista\",\n        \"createdAt\": \"2023-10-18T23:11:11.661Z\",\n        \"updatedAt\": \"2023-10-18T23:11:11.661Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Listar especialidade por nome",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/especialidades?nome=Cardiologiaaa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"especialidades"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": "Cardiologiaaa"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Listar especialidade por nome",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/especialidades?nome=Cardiologia",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"especialidades"
+									],
+									"query": [
+										{
+											"key": "nome",
+											"value": "Cardiologia"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "107"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6b-IoHmqtiJHxsgH0DPPMQQf1kaP+o\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Oct 2023 00:40:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"nome\": \"Cardiologia\",\n    \"createdAt\": \"2023-10-18T18:36:49.003Z\",\n    \"updatedAt\": \"2023-10-18T18:36:49.003Z\"\n}"
+						},
+						{
+							"name": "Listar especialidade com nome incorreto",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/especialidades?nome=Cardiologiaaa",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"especialidades"
+									],
+									"query": [
+										{
+											"key": "nome",
+											"value": "Cardiologiaaa"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "66"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"42-6XEiEC63eR/y3F4WobYb6Vb8hh8\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Oct 2023 00:44:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Especialidade não encontrada para o nome fornecido.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Listar especialidade por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/especialidades/1222",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"especialidades",
+								"1222"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Obter especialidade por ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/especialidades/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"especialidades",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "107"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6b-IoHmqtiJHxsgH0DPPMQQf1kaP+o\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Oct 2023 01:12:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"nome\": \"Cardiologia\",\n    \"createdAt\": \"2023-10-18T18:36:49.003Z\",\n    \"updatedAt\": \"2023-10-18T18:36:49.003Z\"\n}"
+						},
+						{
+							"name": "Obter especialidade com ID inválido",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/especialidades/1222",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"especialidades",
+										"1222"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-5+tM4VAZdKa8T3aqAwxIfxL7Aic\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Oct 2023 01:12:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Especialidade não encontrada.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Cadastrar especialidade",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Dentistaaa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/especialidades",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"especialidades"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Cadastro com sucesso",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"nome\": \"Harry\",\r\n    \"email\": \"pedrafilosofal@hogwarts.magic\",\r\n    \"senha\": \"malfeitofeito\",\r\n    \"funcao\": \"paciente\"\r\n}\r\n",
+									"raw": "{\r\n    \"nome\": \"Dentista\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -118,24 +397,55 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3001/usuarios",
+									"raw": "http://localhost:3001/especialidades",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
 									"port": "3001",
 									"path": [
-										"usuarios"
+										"especialidades"
 									]
 								}
 							},
-							"_postman_previewlanguage": null,
-							"header": null,
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "104"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"68-P4VnUHoZdYCIBNsvNEDf7LTI+W8\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 18 Oct 2023 23:11:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
 							"cookie": [],
-							"body": null
+							"body": "{\n    \"id\": 6,\n    \"nome\": \"Dentista\",\n    \"updatedAt\": \"2023-10-18T23:11:11.661Z\",\n    \"createdAt\": \"2023-10-18T23:11:11.661Z\"\n}"
 						},
 						{
-							"name": "Requisição mal sucedida",
+							"name": "Cadastro com falha",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
@@ -149,32 +459,125 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3001/usuarios",
+									"raw": "http://localhost:3001/especialidades",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
 									"port": "3001",
 									"path": [
-										"usuarios"
+										"especialidades"
 									]
 								}
 							},
-							"_postman_previewlanguage": null,
-							"header": null,
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "32"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"20-A2lhsYU/08PT7P7kVsjU5+xZ1fo\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 18 Oct 2023 23:11:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
 							"cookie": [],
-							"body": null
+							"body": "{\n    \"message\": \"Dados incompletos.\"\n}"
+						},
+						{
+							"name": "Cadastrar especialidade repetida",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Dentista\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/especialidades",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"especialidades"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"27-Nfa5vrlQkrTAqV5RhzASaCcH01g\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 18 Oct 2023 23:26:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Especialidade já existe.\"\n}"
 						}
 					]
 				},
 				{
-					"name": "Atualizar usuário",
+					"name": "Atualizar especialidade",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"pedrafilosofal@hogwarts.com\"\r\n}\r\n",
+							"raw": "{\r\n    \"nome\": \"Dentista\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -182,15 +585,399 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/usuarios/2",
+							"raw": "http://localhost:3001/especialidades/6",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3001",
 							"path": [
-								"usuarios",
-								"2"
+								"especialidades",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir especialidade",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/especialidades/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"especialidades",
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "administradores",
+			"item": [
+				{
+					"name": "Listar todos os administradores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/administradores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"administradores"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Listar todos os administradores",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/administradores",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"administradores"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "148",
+									"type": "text"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"94-wlyw/35B70lE0tJ3p9Bzkz46cdk\"",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Oct 2023 16:49:27 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"type": "text"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"nome\": \"admin\",\n        \"email\": \"admin@medcheck.com\",\n        \"senha\": \"admin\",\n        \"createdAt\": \"2023-10-18T18:36:49.197Z\",\n        \"updatedAt\": \"2023-10-18T18:36:49.197Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Listar administrador por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/administradores/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"administradores",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Listar administrador por ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/administradores/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"administradores",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "146",
+									"type": "text"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"92-EXY83tELmQ0iV4DBfSY7y3pQNbI\"",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Oct 2023 16:52:21 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"type": "text"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"nome\": \"admin\",\n    \"email\": \"admin@medcheck.com\",\n    \"senha\": \"admin\",\n    \"createdAt\": \"2023-10-18T18:36:49.197Z\",\n    \"updatedAt\": \"2023-10-18T18:36:49.197Z\"\n}"
+						},
+						{
+							"name": "Listar administrador com ID inexistente",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/administradores/100",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"administradores",
+										"100"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44",
+									"type": "text"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-IPSoY0zgLOD8flph9u5CCe/nGGs\"",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Oct 2023 16:52:37 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"type": "text"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Administrador não encontrado.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Cadastrar admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Jamilson\",\r\n    \"email\": \"jamisdelas@hogwartssss.magic\",\r\n    \"senha\": \"malfeitofeito\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/administradores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"administradores"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Cadastrar admin já existente",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Rony\",\r\n    \"email\": \"oruivo@hogwarts.magic\",\r\n    \"senha\": \"malfeitofeito\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/administradores",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"administradores"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "63",
+									"type": "text"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3f-vHsUxME68BVDQgzRr6L8T/pk4bU\"",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Oct 2023 17:01:58 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"type": "text"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Já existe Administrador com essas informações.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Atualizar admin",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Novo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/administradores/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"administradores",
+								"4"
 							]
 						}
 					},
@@ -258,6 +1045,76 @@
 							"header": null,
 							"cookie": [],
 							"body": null
+						},
+						{
+							"name": "Atualizar admin",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"novoemail@hogwarts.com\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/administradores/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"administradores",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "161",
+									"type": "text"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a1-7nORcjFJRc12kavPeQyP9wwxbrE\"",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Oct 2023 17:26:18 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"type": "text"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 4,\n    \"nome\": \"Jamilson\",\n    \"email\": \"novoemail@hogwarts.com\",\n    \"senha\": \"malfeitofeito\",\n    \"createdAt\": \"2023-10-19T17:19:02.073Z\",\n    \"updatedAt\": \"2023-10-19T17:26:17.839Z\"\n}"
 						}
 					]
 				},
