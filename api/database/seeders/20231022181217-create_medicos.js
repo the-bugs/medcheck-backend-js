@@ -8,9 +8,7 @@ module.exports = {
       [
         {
           idEspecialidade: 1,
-          nome: "Dr. Cardiologista",
-          email: "cardio@example.com",
-          senha: "senhaMedico1",
+          usuarioId: 2,
           sexo: "M",
           numeroRegistro: "CR12345",
           createdAt: new Date(),
@@ -18,9 +16,7 @@ module.exports = {
         },
         {
           idEspecialidade: 2,
-          nome: "Dra. Dermatologista",
-          email: "derma@example.com",
-          senha: "senhaMedico2",
+          usuarioId: 3,
           sexo: "F",
           numeroRegistro: "CR67890",
           createdAt: new Date(),
@@ -28,9 +24,7 @@ module.exports = {
         },
         {
           idEspecialidade: 3,
-          nome: "Dr. Ortopedista",
-          email: "orto@example.com",
-          senha: "senhaMedico3",
+          usuarioId: 4,
           sexo: "M",
           numeroRegistro: "CR54321",
           createdAt: new Date(),

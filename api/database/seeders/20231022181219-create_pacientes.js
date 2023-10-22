@@ -7,9 +7,7 @@ module.exports = {
       "Pacientes",
       [
         {
-          nome: "Paciente1",
-          email: "paciente1@example.com",
-          senha: "senhaPaciente1",
+          usuarioId: 5,
           sexo: "M",
           cpf: "123.456.789-01",
           dataNascimento: "1990-01-01",
@@ -17,9 +15,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          nome: "Paciente2",
-          email: "paciente2@example.com",
-          senha: "senhaPaciente2",
+          usuarioId: 6,
           sexo: "F",
           cpf: "987.654.321-09",
           dataNascimento: "1985-02-15",
@@ -27,9 +23,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          nome: "Paciente3",
-          email: "paciente3@example.com",
-          senha: "senhaPaciente3",
+          usuarioId: 7,
           sexo: "M",
           cpf: "456.789.012-34",
           dataNascimento: "1998-07-20",

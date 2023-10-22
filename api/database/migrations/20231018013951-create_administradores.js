@@ -10,20 +10,13 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      nome: {
+      usuarioId: {
+        type: Sequelize.INTEGER,
         allowNull: false,
-        unique: false,
-        type: Sequelize.STRING,
-      },
-      email: {
-        allowNull: false,
-        unique: true,
-        type: Sequelize.STRING,
-      },
-      senha: {
-        allowNull: false,
-        unique: false,
-        type: Sequelize.STRING,
+        references: {         // Administrador belongsTo User 1:1
+          model: 'Usuarios',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,
