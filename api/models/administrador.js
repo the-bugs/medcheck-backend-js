@@ -2,13 +2,13 @@
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Administrador extends Model {
-    static associate(models) {}
+    static associate(models) {
+      Administrador.belongsTo(models.Usuario, { as: 'usuario' });
+    }
   }
   Administrador.init(
     {
-      nome: DataTypes.STRING,
-      email: DataTypes.STRING,
-      senha: DataTypes.STRING,
+      usuarioId: DataTypes.INTEGER,
       createdAt: DataTypes.DATE,
       updatedAt: DataTypes.DATE,
     },
@@ -19,5 +19,6 @@ module.exports = (sequelize, DataTypes) => {
       freezeTableName: true,
     }
   );
+
   return Administrador;
 };

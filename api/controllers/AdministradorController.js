@@ -1,4 +1,5 @@
 const database = require("../models");
+const UserController = require("./UserController");
 
 class AdministradorController {
   static async obterAdmin(request, response) {
@@ -9,22 +10,22 @@ class AdministradorController {
       // Verifica se o parâmetro 'nome' foi fornecido
       if (!nome) {
         // Se 'nome' não foi fornecido, retorna todas as especialidades
-        const administradores = await database.Administrador.findAll();
+        const administradores = await database.Administrador.findAll({ include: 'usuario' });
         return response.status(200).json(administradores);
       }
 
       // Se 'nome' foi fornecido, busca especialidades pelo nome
-      const adminPorNome = await database.Administrador.findOne({
-        where: { nome: nome },
-        attributes: { exclude: ["senha"] },
+      const usuario = await database.Usuario.findOne({
+        where: { nome: nome }
       });
 
-      if (adminPorNome == null) {
+      if (usuario) {
+        const adminPorNome = await database.Administrador.findOne({ where: { usuarioId: usuario.id }, include: 'usuario' });
+        return response.status(200).json(adminPorNome);
+      } else {
         return response.status(404).json({
           message: "Admin não encontrada para o nome fornecido.",
         });
-      } else {
-        return response.status(200).json(adminPorNome);
       }
     } catch (error) {
       return response.status(500).json(error.message);
@@ -37,7 +38,7 @@ class AdministradorController {
     try {
       const admin = await database.Administrador.findOne({
         where: { id: Number(id) },
-        attributes: { exclude: ["senha"] },
+        include: 'usuario'
       });
 
       if (admin == null) {
@@ -57,23 +58,20 @@ class AdministradorController {
 
     if ((nome, email, senha)) {
       try {
-        let admin = await database.Administrador.findOne({
+        let oldUser = await database.Usuario.findOne({
           where: { email: email },
         });
 
-        if (admin == null) {
-          await database.Administrador.create({
-            nome,
-            email,
-            senha,
+        if (oldUser == null) {
+          const usuario = await UserController.create({ nome, email, senha, tipo: 'administrador' });
+          const newAdmin = await database.Administrador.create({
+            usuarioId: usuario.id,
           });
 
-          admin = await database.Administrador.findOne({
-            where: { email: email },
-            attributes: { exclude: ["senha"] },
+          const admin = await database.Administrador.findOne({
+            where: { id: newAdmin.id },
+            include: 'usuario'
           });
-
-          // delete admin.dataValues.senha;
 
           return response.status(201).json(admin);
         } else {

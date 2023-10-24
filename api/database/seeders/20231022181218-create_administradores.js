@@ -7,9 +7,7 @@ module.exports = {
       "Administradores",
       [
         {
-          nome: "admin",
-          email: "admin@medcheck.com",
-          senha: "admin",
+          usuarioId: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
