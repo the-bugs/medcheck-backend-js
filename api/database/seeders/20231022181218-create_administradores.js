@@ -4,13 +4,10 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert(
-      "Usuarios",
+      "Administradores",
       [
         {
-          nome: "admin",
-          email: "admin@medcheck.com",
-          senha: "admin",
-          funcao: "admin",
+          usuarioId: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -20,6 +17,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete("Usuarios", null, {});
+    await queryInterface.bulkDelete("Administradores", null, {});
   },
 };

@@ -1,13 +1,11 @@
 const { Router } = require("express");
-const Usuario = require("../models/usuario");
-const UsuarioController = require("../controllers/UsuarioController");
-
+const UserController = require("../controllers/UserController");
+const authGuard = require("./middleware/auth");
+const Roles = require('../helpers/roles');
 const router = Router();
 
-router.get("/usuarios", UsuarioController.listarUsuarios);
-router.get("/usuarios/:id", UsuarioController.obterUsuarioPorId);
-router.post("/usuarios", UsuarioController.criarUsuario);
-router.put("/usuarios/:id", UsuarioController.atualizarUsuario);
-router.delete("/usuarios/:id", UsuarioController.excluirUsuarioPorId);
+router.get("/usuarios", authGuard([Roles.Admin]), UserController.list);
+router.get("/usuarios/:id", authGuard([Roles.Admin]), UserController.findById);
+router.put("/usuarios/:id", authGuard([Roles.Admin]), UserController.update);
 
 module.exports = router;
