@@ -102,7 +102,6 @@ class PacienteController {
           .json({ message: "Paciente não encontrado." });
       }
 
-
       if (email && usuario.email == email) {
         return response
           .status(400)
