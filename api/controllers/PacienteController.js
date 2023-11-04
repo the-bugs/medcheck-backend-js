@@ -71,12 +71,12 @@ class PacienteController {
             dataNascimento
           });
 
-          const admin = await database.Paciente.findOne({
+          const paciente = await database.Paciente.findOne({
             where: { id: newPaciente.id },
             include: 'usuario'
           });
 
-          return response.status(201).json(admin);
+          return response.status(201).json(paciente);
         } else {
           return response.status(404).json({
             message: "Já existe Paciente com essas informações.",
