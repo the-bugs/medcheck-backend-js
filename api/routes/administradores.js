@@ -1,5 +1,4 @@
 const { Router } = require("express");
-const Administrador = require("../models/administrador");
 const AdminController = require("../controllers/AdministradorController");
 const authGuard = require("./middleware/auth");
 const Roles = require('../helpers/roles');
