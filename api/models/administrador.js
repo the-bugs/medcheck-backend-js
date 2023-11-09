@@ -3,7 +3,7 @@ const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Administrador extends Model {
     static associate(models) {
-      Administrador.belongsTo(models.Usuario, { as: 'usuario' });
+      Administrador.belongsTo(models.Usuario, { as: 'usuario', onDelete: 'cascade' });
     }
   }
   Administrador.init(

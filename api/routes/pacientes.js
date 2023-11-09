@@ -8,5 +8,6 @@ router.post("/pacientes", PacienteController.criarPaciente);
 router.get("/pacientes", authGuard([Roles.Admin]), PacienteController.obterPaciente);
 router.get("/pacientes/:id", authGuard([Roles.Admin, Roles.Paciente]), PacienteController.obterPacientePorId);
 router.put("/pacientes/:id", authGuard([Roles.Admin, Roles.Paciente]), PacienteController.atualizarPaciente);
+router.delete("/pacientes/:id", authGuard([Roles.Admin, Roles.Paciente]), PacienteController.removerPaciente);
 
 module.exports = router;

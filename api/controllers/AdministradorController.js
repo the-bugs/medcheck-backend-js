@@ -137,15 +137,15 @@ class AdministradorController {
     const { id } = request.params;
 
     try {
-      let admin = await database.Administrador.findByPk(Number(id));
-
+      let admin = await database.Administrador.findByPk(Number(id), { include: 'usuario' });
       if (!admin) {
         return response
           .status(404)
           .json({ message: "Administrador não encontrado." });
       }
 
-      await admin.destroy();
+      const { usuario } = admin;
+      await usuario.destroy();
 
       return response.status(200).json(true);
     } catch (error) {

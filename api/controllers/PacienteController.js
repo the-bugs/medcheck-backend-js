@@ -124,6 +124,25 @@ class PacienteController {
       return response.status(500).json({ message: error.message });
     }
   }
+
+  static async removerPaciente(request, response) {
+    const { id } = request.params;
+    try {
+      let paciente = await database.Paciente.findByPk(Number(id), { include: 'usuario' });
+
+      if (!paciente) {
+        return response
+          .status(404)
+          .json({ message: "Paciente não encontrado." });
+      }
+      const { usuario } = paciente;
+      await usuario.destroy();
+
+      return response.status(200).json(true);
+    } catch (error) {
+      return response.status(500).json({ message: error.message });
+    }
+  }
 }
 
 module.exports = PacienteController;
