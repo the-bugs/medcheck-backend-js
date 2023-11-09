@@ -8,5 +8,6 @@ router.get("/administradores", authGuard([Roles.Admin]), AdminController.obterAd
 router.get("/administradores/:id", authGuard([Roles.Admin]), AdminController.obterAdminPorId);
 router.post("/administradores", authGuard([Roles.Admin]), AdminController.criarAdmin);
 router.put("/administradores/:id", authGuard([Roles.Admin]), AdminController.atualizarAdministrador);
+router.delete("/administradores/:id", authGuard([Roles.Admin]), AdminController.removerAdministrador);
 
 module.exports = router;

@@ -132,6 +132,26 @@ class AdministradorController {
       return response.status(500).json({ message: error.message });
     }
   }
+
+  static async removerAdministrador(request, response) {
+    const { id } = request.params;
+
+    try {
+      let admin = await database.Administrador.findByPk(Number(id));
+
+      if (!admin) {
+        return response
+          .status(404)
+          .json({ message: "Administrador não encontrado." });
+      }
+
+      await admin.destroy();
+
+      return response.status(200).json(true);
+    } catch (error) {
+      return response.status(500).json({ message: error.message });
+    }
+  }
 }
 
 module.exports = AdministradorController;
