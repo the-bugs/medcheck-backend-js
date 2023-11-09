@@ -10,8 +10,8 @@ class PacienteController {
       // Verifica se o parâmetro 'nome' foi fornecido
       if (!nome) {
         // Se 'nome' não foi fornecido, retorna todas as especialidades
-        const paicentes = await database.Paciente.findAll({ include: 'usuario' });
-        return response.status(200).json(paicentes);
+        const pacientes = await database.Paciente.findAll({ include: 'usuario' });
+        return response.status(200).json(pacientes);
       }
 
       // Se 'nome' foi fornecido, busca especialidades pelo nome
@@ -47,7 +47,7 @@ class PacienteController {
           .json({ message: "Paciente não encontrado." });
       }
 
-      return response.status(200).json(admin);
+      return response.status(200).json(paciente);
     } catch (error) {
       return response.status(590).json(error.message);
     }
