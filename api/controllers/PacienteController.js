@@ -63,7 +63,7 @@ class PacienteController {
         });
 
         if (oldUser == null) {
-          const usuario = await UserController.create({ nome, email, senha, tipo: 'paciente' });
+          const usuario = await UserController.create({ nome, email, senha, tipo: 'Paciente' });
           const newPaciente = await database.Paciente.create({
             usuarioId: usuario.id,
             cpf,
