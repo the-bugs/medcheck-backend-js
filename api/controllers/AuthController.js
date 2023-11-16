@@ -7,6 +7,9 @@ class AuthController {
             const { email, senha } = request.body;
 
             const usuario = await database.Usuario.unscoped().findOne({ where: { email } });
+
+            if (!usuario) return response.status(404).json({ message: 'Usuário não encontrado!' });
+
             const foreignModel = await database[usuario.tipo].findOne({ where: { usuarioId: usuario.id } });
 
             if (senha === usuario.senha && foreignModel) {
