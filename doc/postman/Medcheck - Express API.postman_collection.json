@@ -7,6 +7,2560 @@
 	},
 	"item": [
 		{
+			"name": "login",
+			"item": [
+				{
+					"name": "Fazer login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@example.com\",\r\n    \"senha\": \"senhaAdmin1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login bem sucedido",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"admin@example.com\",\r\n    \"senha\": \"senhaAdmin1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "263"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"107-etGCdRmVf/a4xs7b9MGsazzXOkk\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 23 Oct 2023 23:24:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"auth\": true,\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwidGlwbyI6IkFkbWluaXN0cmFkb3IiLCJpZF9leHRlcm5vIjoxLCJpYXQiOjE2OTgxMDM0OTksImV4cCI6MTY5ODExMDY5OX0.dI9aZsBpZBMIq3gkwiFMkeNMumCEJl24j0N_QbHx9Vg\"\n}"
+						},
+						{
+							"name": "Login mal sucedido",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"admin@example.coma\",\r\n    \"senha\": \"senhaAdmin1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"31-I3AxsGc6dsqnYoTBBMJGu6ZUV/U\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 23 Oct 2023 23:25:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "\"Cannot read properties of null (reading 'tipo')\""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "usuários",
+			"item": [
+				{
+					"name": "Listar todos os usuários",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"name": "cache-control",
+								"sortOrder": 2,
+								"infoTitle": "We recommend using this header",
+								"info": "Postman added \"Cache-Control: no-cache\" as a precautionary measure to prevent the server from returning stale response when one makes repeated requests.\n\nYou can remove this header in the app settings or enter a new one with a different value.",
+								"allowedToToggle": false,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to settings",
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"system": true,
+								"type": "text",
+								"id": 0
+							},
+							{
+								"name": "postman-token",
+								"sortOrder": 3,
+								"infoTitle": "We recommend using this header",
+								"info": "The Postman-Token header appends a random UUID to every outgoing request. Postman adds this header for API developers to better debug requests sent and to ensure separate requests appear distinct to the receiving server.\n\nYou can remove this header in the app settings.",
+								"allowedToToggle": false,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to settings",
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"system": true,
+								"type": "text",
+								"id": 1
+							},
+							{
+								"name": "host",
+								"sortOrder": 6,
+								"infoTitle": "We recommend using this header",
+								"info": "The Host header is added to identify the domain name for which a request is being sent to the server. This header is implicitly sent by every HTTP client.\n\nYou can remove the header or enter a new one with a different value. It is most likely that without this header, your request will return an HTTP 400 error.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"system": true,
+								"type": "text",
+								"id": 2
+							},
+							{
+								"name": "user-agent",
+								"sortOrder": 7,
+								"infoTitle": "We recommend using this header",
+								"info": "The User-Agent header is added to help the server identify Postman as the HTTP requesting application or client.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.32.1",
+								"system": true,
+								"type": "text",
+								"id": 3
+							},
+							{
+								"name": "accept",
+								"sortOrder": 8,
+								"infoTitle": "We recommend using this header",
+								"info": "The \"Accept: */*\" header is added to tell the server that Postman can understand and process all forms of response content types.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Accept",
+								"value": "*/*",
+								"system": true,
+								"type": "text",
+								"id": 4
+							},
+							{
+								"name": "accept-encoding",
+								"sortOrder": 9,
+								"infoTitle": "We recommend using this header",
+								"info": "The Accept-Encoding header is added to indicate to the server that Postman HTTP client supports a defined list of content-encoding or compression algorithms as response.\n\nYou can remove the header or enter a new one with a different value. Doing that may not accurately render the response within the app.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"system": true,
+								"type": "text",
+								"id": 5
+							},
+							{
+								"name": "connection",
+								"sortOrder": 10,
+								"infoTitle": "We recommend using this header",
+								"info": "Postman added the Connection header to indicate the server to keep the underlying network connection open once the current response is received. This allows Postman to reuse the same connection for faster response times in subsequent requests to the same server.\n\nYou can remove this header or enter a new one with a different value, such as `Connection: Close` to control this behaviour.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Connection",
+								"value": "keep-alive",
+								"system": true,
+								"type": "text",
+								"id": 6
+							},
+							{
+								"key": "x-access-token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwidGlwbyI6IkFkbWluaXN0cmFkb3IiLCJpZF9leHRlcm5vIjoxLCJpYXQiOjE2OTgxMDI3NTQsImV4cCI6MTY5ODEwOTk1NH0.KkBd5frhUfSiF2w_xj1d61aKU5QIUmru1JVaIw6C0Ak",
+								"type": "text",
+								"id": 0
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [],
+							"options": {
+								"urlencoded": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Listar todos os usuários",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"name": "cache-control",
+										"sortOrder": 2,
+										"infoTitle": "We recommend using this header",
+										"info": "Postman added \"Cache-Control: no-cache\" as a precautionary measure to prevent the server from returning stale response when one makes repeated requests.\n\nYou can remove this header in the app settings or enter a new one with a different value.",
+										"allowedToToggle": false,
+										"disableEdit": true,
+										"previewSettingsLink": "Go to settings",
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"system": true,
+										"type": "text",
+										"id": 0
+									},
+									{
+										"name": "postman-token",
+										"sortOrder": 3,
+										"infoTitle": "We recommend using this header",
+										"info": "The Postman-Token header appends a random UUID to every outgoing request. Postman adds this header for API developers to better debug requests sent and to ensure separate requests appear distinct to the receiving server.\n\nYou can remove this header in the app settings.",
+										"allowedToToggle": false,
+										"disableEdit": true,
+										"previewSettingsLink": "Go to settings",
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"system": true,
+										"type": "text",
+										"id": 1
+									},
+									{
+										"name": "host",
+										"sortOrder": 6,
+										"infoTitle": "We recommend using this header",
+										"info": "The Host header is added to identify the domain name for which a request is being sent to the server. This header is implicitly sent by every HTTP client.\n\nYou can remove the header or enter a new one with a different value. It is most likely that without this header, your request will return an HTTP 400 error.",
+										"allowedToToggle": true,
+										"disableEdit": true,
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"system": true,
+										"type": "text",
+										"id": 2
+									},
+									{
+										"name": "user-agent",
+										"sortOrder": 7,
+										"infoTitle": "We recommend using this header",
+										"info": "The User-Agent header is added to help the server identify Postman as the HTTP requesting application or client.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+										"allowedToToggle": true,
+										"disableEdit": true,
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.32.1",
+										"system": true,
+										"type": "text",
+										"id": 3
+									},
+									{
+										"name": "accept",
+										"sortOrder": 8,
+										"infoTitle": "We recommend using this header",
+										"info": "The \"Accept: */*\" header is added to tell the server that Postman can understand and process all forms of response content types.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+										"allowedToToggle": true,
+										"disableEdit": true,
+										"key": "Accept",
+										"value": "*/*",
+										"system": true,
+										"type": "text",
+										"id": 4
+									},
+									{
+										"name": "accept-encoding",
+										"sortOrder": 9,
+										"infoTitle": "We recommend using this header",
+										"info": "The Accept-Encoding header is added to indicate to the server that Postman HTTP client supports a defined list of content-encoding or compression algorithms as response.\n\nYou can remove the header or enter a new one with a different value. Doing that may not accurately render the response within the app.",
+										"allowedToToggle": true,
+										"disableEdit": true,
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"system": true,
+										"type": "text",
+										"id": 5
+									},
+									{
+										"name": "connection",
+										"sortOrder": 10,
+										"infoTitle": "We recommend using this header",
+										"info": "Postman added the Connection header to indicate the server to keep the underlying network connection open once the current response is received. This allows Postman to reuse the same connection for faster response times in subsequent requests to the same server.\n\nYou can remove this header or enter a new one with a different value, such as `Connection: Close` to control this behaviour.",
+										"allowedToToggle": true,
+										"disableEdit": true,
+										"key": "Connection",
+										"value": "keep-alive",
+										"system": true,
+										"type": "text",
+										"id": 6
+									},
+									{
+										"key": "x-access-token",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwidGlwbyI6IkFkbWluaXN0cmFkb3IiLCJpZF9leHRlcm5vIjoxLCJpYXQiOjE2OTgxMDI3NTQsImV4cCI6MTY5ODEwOTk1NH0.KkBd5frhUfSiF2w_xj1d61aKU5QIUmru1JVaIw6C0Ak",
+										"type": "text",
+										"id": 0
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [],
+									"options": {
+										"urlencoded": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/usuarios",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1123"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"463-hv28XM7KC6ozggZTosbPTLjOygE\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 23 Oct 2023 23:28:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"nome\": \"Sr. Administrador\",\n        \"email\": \"admin@example.com\",\n        \"tipo\": \"Administrador\",\n        \"createdAt\": \"2023-10-23T22:27:59.516Z\",\n        \"updatedAt\": \"2023-10-23T22:27:59.516Z\"\n    },\n    {\n        \"id\": 2,\n        \"nome\": \"Dr. Cardiologista\",\n        \"email\": \"cardio@example.com\",\n        \"tipo\": \"Medico\",\n        \"createdAt\": \"2023-10-23T22:27:59.516Z\",\n        \"updatedAt\": \"2023-10-23T22:27:59.516Z\"\n    },\n    {\n        \"id\": 3,\n        \"nome\": \"Dra. Dermatologista\",\n        \"email\": \"derma@example.com\",\n        \"tipo\": \"Medico\",\n        \"createdAt\": \"2023-10-23T22:27:59.516Z\",\n        \"updatedAt\": \"2023-10-23T22:27:59.516Z\"\n    },\n    {\n        \"id\": 4,\n        \"nome\": \"Dr. Ortopedista\",\n        \"email\": \"orto@example.com\",\n        \"tipo\": \"Medico\",\n        \"createdAt\": \"2023-10-23T22:27:59.516Z\",\n        \"updatedAt\": \"2023-10-23T22:27:59.516Z\"\n    },\n    {\n        \"id\": 5,\n        \"nome\": \"Sr. Paciente 1\",\n        \"email\": \"paciente1@example.com\",\n        \"tipo\": \"Paciente\",\n        \"createdAt\": \"2023-10-23T22:27:59.516Z\",\n        \"updatedAt\": \"2023-10-23T22:27:59.516Z\"\n    },\n    {\n        \"id\": 6,\n        \"nome\": \"Sr. Paciente 2\",\n        \"email\": \"paciente2@example.com\",\n        \"tipo\": \"Paciente\",\n        \"createdAt\": \"2023-10-23T22:27:59.516Z\",\n        \"updatedAt\": \"2023-10-23T22:27:59.516Z\"\n    },\n    {\n        \"id\": 7,\n        \"nome\": \"Sr. Paciente 3\",\n        \"email\": \"paciente3@example.com\",\n        \"tipo\": \"Paciente\",\n        \"createdAt\": \"2023-10-23T22:27:59.516Z\",\n        \"updatedAt\": \"2023-10-23T22:27:59.516Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Listar usuário por ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"name": "cache-control",
+								"sortOrder": 2,
+								"infoTitle": "We recommend using this header",
+								"info": "Postman added \"Cache-Control: no-cache\" as a precautionary measure to prevent the server from returning stale response when one makes repeated requests.\n\nYou can remove this header in the app settings or enter a new one with a different value.",
+								"allowedToToggle": false,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to settings",
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"system": true,
+								"type": "text",
+								"id": 0
+							},
+							{
+								"name": "postman-token",
+								"sortOrder": 3,
+								"infoTitle": "We recommend using this header",
+								"info": "The Postman-Token header appends a random UUID to every outgoing request. Postman adds this header for API developers to better debug requests sent and to ensure separate requests appear distinct to the receiving server.\n\nYou can remove this header in the app settings.",
+								"allowedToToggle": false,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to settings",
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"system": true,
+								"type": "text",
+								"id": 1
+							},
+							{
+								"name": "host",
+								"sortOrder": 6,
+								"infoTitle": "We recommend using this header",
+								"info": "The Host header is added to identify the domain name for which a request is being sent to the server. This header is implicitly sent by every HTTP client.\n\nYou can remove the header or enter a new one with a different value. It is most likely that without this header, your request will return an HTTP 400 error.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"system": true,
+								"type": "text",
+								"id": 2
+							},
+							{
+								"name": "user-agent",
+								"sortOrder": 7,
+								"infoTitle": "We recommend using this header",
+								"info": "The User-Agent header is added to help the server identify Postman as the HTTP requesting application or client.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.32.1",
+								"system": true,
+								"type": "text",
+								"id": 3
+							},
+							{
+								"name": "accept",
+								"sortOrder": 8,
+								"infoTitle": "We recommend using this header",
+								"info": "The \"Accept: */*\" header is added to tell the server that Postman can understand and process all forms of response content types.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Accept",
+								"value": "*/*",
+								"system": true,
+								"type": "text",
+								"id": 4
+							},
+							{
+								"name": "accept-encoding",
+								"sortOrder": 9,
+								"infoTitle": "We recommend using this header",
+								"info": "The Accept-Encoding header is added to indicate to the server that Postman HTTP client supports a defined list of content-encoding or compression algorithms as response.\n\nYou can remove the header or enter a new one with a different value. Doing that may not accurately render the response within the app.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"system": true,
+								"type": "text",
+								"id": 5
+							},
+							{
+								"name": "connection",
+								"sortOrder": 10,
+								"infoTitle": "We recommend using this header",
+								"info": "Postman added the Connection header to indicate the server to keep the underlying network connection open once the current response is received. This allows Postman to reuse the same connection for faster response times in subsequent requests to the same server.\n\nYou can remove this header or enter a new one with a different value, such as `Connection: Close` to control this behaviour.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Connection",
+								"value": "keep-alive",
+								"system": true,
+								"type": "text",
+								"id": 6
+							},
+							{
+								"key": "x-access-token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwidGlwbyI6IkFkbWluaXN0cmFkb3IiLCJpZF9leHRlcm5vIjoxLCJpYXQiOjE2OTgxMDI3NTQsImV4cCI6MTY5ODEwOTk1NH0.KkBd5frhUfSiF2w_xj1d61aKU5QIUmru1JVaIw6C0Ak",
+								"type": "text",
+								"id": 0
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [],
+							"options": {
+								"urlencoded": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/usuarios/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"usuarios",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Listar usuário por ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"name": "cache-control",
+										"sortOrder": 2,
+										"infoTitle": "We recommend using this header",
+										"info": "Postman added \"Cache-Control: no-cache\" as a precautionary measure to prevent the server from returning stale response when one makes repeated requests.\n\nYou can remove this header in the app settings or enter a new one with a different value.",
+										"allowedToToggle": false,
+										"disableEdit": true,
+										"previewSettingsLink": "Go to settings",
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"system": true,
+										"type": "text",
+										"id": 0
+									},
+									{
+										"name": "postman-token",
+										"sortOrder": 3,
+										"infoTitle": "We recommend using this header",
+										"info": "The Postman-Token header appends a random UUID to every outgoing request. Postman adds this header for API developers to better debug requests sent and to ensure separate requests appear distinct to the receiving server.\n\nYou can remove this header in the app settings.",
+										"allowedToToggle": false,
+										"disableEdit": true,
+										"previewSettingsLink": "Go to settings",
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"system": true,
+										"type": "text",
+										"id": 1
+									},
+									{
+										"name": "host",
+										"sortOrder": 6,
+										"infoTitle": "We recommend using this header",
+										"info": "The Host header is added to identify the domain name for which a request is being sent to the server. This header is implicitly sent by every HTTP client.\n\nYou can remove the header or enter a new one with a different value. It is most likely that without this header, your request will return an HTTP 400 error.",
+										"allowedToToggle": true,
+										"disableEdit": true,
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"system": true,
+										"type": "text",
+										"id": 2
+									},
+									{
+										"name": "user-agent",
+										"sortOrder": 7,
+										"infoTitle": "We recommend using this header",
+										"info": "The User-Agent header is added to help the server identify Postman as the HTTP requesting application or client.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+										"allowedToToggle": true,
+										"disableEdit": true,
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.32.1",
+										"system": true,
+										"type": "text",
+										"id": 3
+									},
+									{
+										"name": "accept",
+										"sortOrder": 8,
+										"infoTitle": "We recommend using this header",
+										"info": "The \"Accept: */*\" header is added to tell the server that Postman can understand and process all forms of response content types.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+										"allowedToToggle": true,
+										"disableEdit": true,
+										"key": "Accept",
+										"value": "*/*",
+										"system": true,
+										"type": "text",
+										"id": 4
+									},
+									{
+										"name": "accept-encoding",
+										"sortOrder": 9,
+										"infoTitle": "We recommend using this header",
+										"info": "The Accept-Encoding header is added to indicate to the server that Postman HTTP client supports a defined list of content-encoding or compression algorithms as response.\n\nYou can remove the header or enter a new one with a different value. Doing that may not accurately render the response within the app.",
+										"allowedToToggle": true,
+										"disableEdit": true,
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"system": true,
+										"type": "text",
+										"id": 5
+									},
+									{
+										"name": "connection",
+										"sortOrder": 10,
+										"infoTitle": "We recommend using this header",
+										"info": "Postman added the Connection header to indicate the server to keep the underlying network connection open once the current response is received. This allows Postman to reuse the same connection for faster response times in subsequent requests to the same server.\n\nYou can remove this header or enter a new one with a different value, such as `Connection: Close` to control this behaviour.",
+										"allowedToToggle": true,
+										"disableEdit": true,
+										"key": "Connection",
+										"value": "keep-alive",
+										"system": true,
+										"type": "text",
+										"id": 6
+									},
+									{
+										"key": "x-access-token",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwidGlwbyI6IkFkbWluaXN0cmFkb3IiLCJpZF9leHRlcm5vIjoxLCJpYXQiOjE2OTgxMDI3NTQsImV4cCI6MTY5ODEwOTk1NH0.KkBd5frhUfSiF2w_xj1d61aKU5QIUmru1JVaIw6C0Ak",
+										"type": "text",
+										"id": 0
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [],
+									"options": {
+										"urlencoded": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/usuarios/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"usuarios",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "164"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a4-CaPSQUBP0SplgtK35+u8nqNOmZ4\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 23 Oct 2023 23:29:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"nome\": \"Sr. Administrador\",\n    \"email\": \"admin@example.com\",\n    \"tipo\": \"Administrador\",\n    \"createdAt\": \"2023-10-23T22:27:59.516Z\",\n    \"updatedAt\": \"2023-10-23T22:27:59.516Z\"\n}"
+						},
+						{
+							"name": "Listar usuário por ID inexistente",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"name": "cache-control",
+										"sortOrder": 2,
+										"infoTitle": "We recommend using this header",
+										"info": "Postman added \"Cache-Control: no-cache\" as a precautionary measure to prevent the server from returning stale response when one makes repeated requests.\n\nYou can remove this header in the app settings or enter a new one with a different value.",
+										"allowedToToggle": false,
+										"disableEdit": true,
+										"previewSettingsLink": "Go to settings",
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"system": true,
+										"type": "text",
+										"id": 0
+									},
+									{
+										"name": "postman-token",
+										"sortOrder": 3,
+										"infoTitle": "We recommend using this header",
+										"info": "The Postman-Token header appends a random UUID to every outgoing request. Postman adds this header for API developers to better debug requests sent and to ensure separate requests appear distinct to the receiving server.\n\nYou can remove this header in the app settings.",
+										"allowedToToggle": false,
+										"disableEdit": true,
+										"previewSettingsLink": "Go to settings",
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"system": true,
+										"type": "text",
+										"id": 1
+									},
+									{
+										"name": "host",
+										"sortOrder": 6,
+										"infoTitle": "We recommend using this header",
+										"info": "The Host header is added to identify the domain name for which a request is being sent to the server. This header is implicitly sent by every HTTP client.\n\nYou can remove the header or enter a new one with a different value. It is most likely that without this header, your request will return an HTTP 400 error.",
+										"allowedToToggle": true,
+										"disableEdit": true,
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"system": true,
+										"type": "text",
+										"id": 2
+									},
+									{
+										"name": "user-agent",
+										"sortOrder": 7,
+										"infoTitle": "We recommend using this header",
+										"info": "The User-Agent header is added to help the server identify Postman as the HTTP requesting application or client.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+										"allowedToToggle": true,
+										"disableEdit": true,
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.32.1",
+										"system": true,
+										"type": "text",
+										"id": 3
+									},
+									{
+										"name": "accept",
+										"sortOrder": 8,
+										"infoTitle": "We recommend using this header",
+										"info": "The \"Accept: */*\" header is added to tell the server that Postman can understand and process all forms of response content types.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+										"allowedToToggle": true,
+										"disableEdit": true,
+										"key": "Accept",
+										"value": "*/*",
+										"system": true,
+										"type": "text",
+										"id": 4
+									},
+									{
+										"name": "accept-encoding",
+										"sortOrder": 9,
+										"infoTitle": "We recommend using this header",
+										"info": "The Accept-Encoding header is added to indicate to the server that Postman HTTP client supports a defined list of content-encoding or compression algorithms as response.\n\nYou can remove the header or enter a new one with a different value. Doing that may not accurately render the response within the app.",
+										"allowedToToggle": true,
+										"disableEdit": true,
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"system": true,
+										"type": "text",
+										"id": 5
+									},
+									{
+										"name": "connection",
+										"sortOrder": 10,
+										"infoTitle": "We recommend using this header",
+										"info": "Postman added the Connection header to indicate the server to keep the underlying network connection open once the current response is received. This allows Postman to reuse the same connection for faster response times in subsequent requests to the same server.\n\nYou can remove this header or enter a new one with a different value, such as `Connection: Close` to control this behaviour.",
+										"allowedToToggle": true,
+										"disableEdit": true,
+										"key": "Connection",
+										"value": "keep-alive",
+										"system": true,
+										"type": "text",
+										"id": 6
+									},
+									{
+										"key": "x-access-token",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwidGlwbyI6IkFkbWluaXN0cmFkb3IiLCJpZF9leHRlcm5vIjoxLCJpYXQiOjE2OTgxMDI3NTQsImV4cCI6MTY5ODEwOTk1NH0.KkBd5frhUfSiF2w_xj1d61aKU5QIUmru1JVaIw6C0Ak",
+										"type": "text",
+										"id": 0
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [],
+									"options": {
+										"urlencoded": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/usuarios/100",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"usuarios",
+										"100"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"27-1gIOvfgXXzQUhtilcYsNzzEVfD0\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 23 Oct 2023 23:30:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Usuário não encontrado.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Cadastrar usuário",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwidGlwbyI6IkFkbWluaXN0cmFkb3IiLCJpZF9leHRlcm5vIjoxLCJpYXQiOjE2OTgxMDI3NTQsImV4cCI6MTY5ODEwOTk1NH0.KkBd5frhUfSiF2w_xj1d61aKU5QIUmru1JVaIw6C0Ak",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Jamilson\",\r\n    \"email\": \"jamisdelas@hogwartssss.magic\",\r\n    \"senha\": \"malfeitofeito\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Cadastrar admin já existente",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Rony\",\r\n    \"email\": \"oruivo@hogwarts.magic\",\r\n    \"senha\": \"malfeitofeito\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/administradores",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"administradores"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "63",
+									"type": "text"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3f-vHsUxME68BVDQgzRr6L8T/pk4bU\"",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Oct 2023 17:01:58 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"type": "text"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Já existe Administrador com essas informações.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Atualizar admin",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Novo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/administradores/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"administradores",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ID existente",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"pedrafilosofal@hogwarts.com\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/usuarios/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"usuarios",
+										"2"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "ID inexistente",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"pedrafilosofal@hogwarts.com\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/usuarios/99999",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"usuarios",
+										"99999"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Atualizar admin",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"novoemail@hogwarts.com\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/administradores/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"administradores",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "161",
+									"type": "text"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a1-7nORcjFJRc12kavPeQyP9wwxbrE\"",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Oct 2023 17:26:18 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"type": "text"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 4,\n    \"nome\": \"Jamilson\",\n    \"email\": \"novoemail@hogwarts.com\",\n    \"senha\": \"malfeitofeito\",\n    \"createdAt\": \"2023-10-19T17:19:02.073Z\",\n    \"updatedAt\": \"2023-10-19T17:26:17.839Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Excluir administradores",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"name": "cache-control",
+								"sortOrder": 2,
+								"infoTitle": "We recommend using this header",
+								"info": "Postman added \"Cache-Control: no-cache\" as a precautionary measure to prevent the server from returning stale response when one makes repeated requests.\n\nYou can remove this header in the app settings or enter a new one with a different value.",
+								"allowedToToggle": false,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to settings",
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "postman-token",
+								"sortOrder": 3,
+								"infoTitle": "We recommend using this header",
+								"info": "The Postman-Token header appends a random UUID to every outgoing request. Postman adds this header for API developers to better debug requests sent and to ensure separate requests appear distinct to the receiving server.\n\nYou can remove this header in the app settings.",
+								"allowedToToggle": false,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to settings",
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "host",
+								"sortOrder": 6,
+								"infoTitle": "We recommend using this header",
+								"info": "The Host header is added to identify the domain name for which a request is being sent to the server. This header is implicitly sent by every HTTP client.\n\nYou can remove the header or enter a new one with a different value. It is most likely that without this header, your request will return an HTTP 400 error.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "user-agent",
+								"sortOrder": 7,
+								"infoTitle": "We recommend using this header",
+								"info": "The User-Agent header is added to help the server identify Postman as the HTTP requesting application or client.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.32.1",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "accept",
+								"sortOrder": 8,
+								"infoTitle": "We recommend using this header",
+								"info": "The \"Accept: */*\" header is added to tell the server that Postman can understand and process all forms of response content types.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Accept",
+								"value": "*/*",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "accept-encoding",
+								"sortOrder": 9,
+								"infoTitle": "We recommend using this header",
+								"info": "The Accept-Encoding header is added to indicate to the server that Postman HTTP client supports a defined list of content-encoding or compression algorithms as response.\n\nYou can remove the header or enter a new one with a different value. Doing that may not accurately render the response within the app.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "connection",
+								"sortOrder": 10,
+								"infoTitle": "We recommend using this header",
+								"info": "Postman added the Connection header to indicate the server to keep the underlying network connection open once the current response is received. This allows Postman to reuse the same connection for faster response times in subsequent requests to the same server.\n\nYou can remove this header or enter a new one with a different value, such as `Connection: Close` to control this behaviour.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Connection",
+								"value": "keep-alive",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"key": "x-access-token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwidGlwbyI6IkFkbWluaXN0cmFkb3IiLCJpZF9leHRlcm5vIjoxLCJpYXQiOjE2OTgxMDI3NTQsImV4cCI6MTY5ODEwOTk1NH0.KkBd5frhUfSiF2w_xj1d61aKU5QIUmru1JVaIw6C0Ak",
+								"type": "text",
+								"id": 0
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/administradores/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"administradores",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Excluir administrador",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/administradores/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"administradores",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49",
+									"type": "text"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"31-dq6NkeOxhYk6wfuvW2mB8ZtWu5E\"",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 21 Oct 2023 22:29:55 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"type": "text"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Administrador removido com sucesso!\"\n}"
+						},
+						{
+							"name": "Excluir administrador inexistente",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/administradores/400",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"administradores",
+										"400"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44",
+									"type": "text"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-IPSoY0zgLOD8flph9u5CCe/nGGs\"",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 21 Oct 2023 22:30:27 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"type": "text"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Administrador não encontrado.\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "administradores",
+			"item": [
+				{
+					"name": "Listar todos os administradores",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"name": "cache-control",
+								"sortOrder": 2,
+								"infoTitle": "We recommend using this header",
+								"info": "Postman added \"Cache-Control: no-cache\" as a precautionary measure to prevent the server from returning stale response when one makes repeated requests.\n\nYou can remove this header in the app settings or enter a new one with a different value.",
+								"allowedToToggle": false,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to settings",
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "postman-token",
+								"sortOrder": 3,
+								"infoTitle": "We recommend using this header",
+								"info": "The Postman-Token header appends a random UUID to every outgoing request. Postman adds this header for API developers to better debug requests sent and to ensure separate requests appear distinct to the receiving server.\n\nYou can remove this header in the app settings.",
+								"allowedToToggle": false,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to settings",
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "host",
+								"sortOrder": 6,
+								"infoTitle": "We recommend using this header",
+								"info": "The Host header is added to identify the domain name for which a request is being sent to the server. This header is implicitly sent by every HTTP client.\n\nYou can remove the header or enter a new one with a different value. It is most likely that without this header, your request will return an HTTP 400 error.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "user-agent",
+								"sortOrder": 7,
+								"infoTitle": "We recommend using this header",
+								"info": "The User-Agent header is added to help the server identify Postman as the HTTP requesting application or client.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.32.1",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "accept",
+								"sortOrder": 8,
+								"infoTitle": "We recommend using this header",
+								"info": "The \"Accept: */*\" header is added to tell the server that Postman can understand and process all forms of response content types.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Accept",
+								"value": "*/*",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "accept-encoding",
+								"sortOrder": 9,
+								"infoTitle": "We recommend using this header",
+								"info": "The Accept-Encoding header is added to indicate to the server that Postman HTTP client supports a defined list of content-encoding or compression algorithms as response.\n\nYou can remove the header or enter a new one with a different value. Doing that may not accurately render the response within the app.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "connection",
+								"sortOrder": 10,
+								"infoTitle": "We recommend using this header",
+								"info": "Postman added the Connection header to indicate the server to keep the underlying network connection open once the current response is received. This allows Postman to reuse the same connection for faster response times in subsequent requests to the same server.\n\nYou can remove this header or enter a new one with a different value, such as `Connection: Close` to control this behaviour.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Connection",
+								"value": "keep-alive",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"key": "x-access-token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwidGlwbyI6IkFkbWluaXN0cmFkb3IiLCJpZF9leHRlcm5vIjoxLCJpYXQiOjE2OTgxMDI3NTQsImV4cCI6MTY5ODEwOTk1NH0.KkBd5frhUfSiF2w_xj1d61aKU5QIUmru1JVaIw6C0Ak",
+								"type": "text",
+								"id": 0
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/administradores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"administradores"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Listar todos os administradores",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/administradores",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"administradores"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "148",
+									"type": "text"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"94-wlyw/35B70lE0tJ3p9Bzkz46cdk\"",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Oct 2023 16:49:27 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"type": "text"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"nome\": \"admin\",\n        \"email\": \"admin@medcheck.com\",\n        \"senha\": \"admin\",\n        \"createdAt\": \"2023-10-18T18:36:49.197Z\",\n        \"updatedAt\": \"2023-10-18T18:36:49.197Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Listar administrador por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"name": "cache-control",
+								"sortOrder": 2,
+								"infoTitle": "We recommend using this header",
+								"info": "Postman added \"Cache-Control: no-cache\" as a precautionary measure to prevent the server from returning stale response when one makes repeated requests.\n\nYou can remove this header in the app settings or enter a new one with a different value.",
+								"allowedToToggle": false,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to settings",
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "postman-token",
+								"sortOrder": 3,
+								"infoTitle": "We recommend using this header",
+								"info": "The Postman-Token header appends a random UUID to every outgoing request. Postman adds this header for API developers to better debug requests sent and to ensure separate requests appear distinct to the receiving server.\n\nYou can remove this header in the app settings.",
+								"allowedToToggle": false,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to settings",
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "host",
+								"sortOrder": 6,
+								"infoTitle": "We recommend using this header",
+								"info": "The Host header is added to identify the domain name for which a request is being sent to the server. This header is implicitly sent by every HTTP client.\n\nYou can remove the header or enter a new one with a different value. It is most likely that without this header, your request will return an HTTP 400 error.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "user-agent",
+								"sortOrder": 7,
+								"infoTitle": "We recommend using this header",
+								"info": "The User-Agent header is added to help the server identify Postman as the HTTP requesting application or client.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.32.1",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "accept",
+								"sortOrder": 8,
+								"infoTitle": "We recommend using this header",
+								"info": "The \"Accept: */*\" header is added to tell the server that Postman can understand and process all forms of response content types.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Accept",
+								"value": "*/*",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "accept-encoding",
+								"sortOrder": 9,
+								"infoTitle": "We recommend using this header",
+								"info": "The Accept-Encoding header is added to indicate to the server that Postman HTTP client supports a defined list of content-encoding or compression algorithms as response.\n\nYou can remove the header or enter a new one with a different value. Doing that may not accurately render the response within the app.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "connection",
+								"sortOrder": 10,
+								"infoTitle": "We recommend using this header",
+								"info": "Postman added the Connection header to indicate the server to keep the underlying network connection open once the current response is received. This allows Postman to reuse the same connection for faster response times in subsequent requests to the same server.\n\nYou can remove this header or enter a new one with a different value, such as `Connection: Close` to control this behaviour.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Connection",
+								"value": "keep-alive",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"key": "x-access-token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwidGlwbyI6IkFkbWluaXN0cmFkb3IiLCJpZF9leHRlcm5vIjoxLCJpYXQiOjE2OTgxMDI3NTQsImV4cCI6MTY5ODEwOTk1NH0.KkBd5frhUfSiF2w_xj1d61aKU5QIUmru1JVaIw6C0Ak",
+								"type": "text",
+								"id": 0
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/administradores/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"administradores",
+								"1"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Listar administrador por ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/administradores/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"administradores",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "146",
+									"type": "text"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"92-EXY83tELmQ0iV4DBfSY7y3pQNbI\"",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Oct 2023 16:52:21 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"type": "text"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"nome\": \"admin\",\n    \"email\": \"admin@medcheck.com\",\n    \"senha\": \"admin\",\n    \"createdAt\": \"2023-10-18T18:36:49.197Z\",\n    \"updatedAt\": \"2023-10-18T18:36:49.197Z\"\n}"
+						},
+						{
+							"name": "Listar administrador com ID inexistente",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/administradores/100",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"administradores",
+										"100"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44",
+									"type": "text"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-IPSoY0zgLOD8flph9u5CCe/nGGs\"",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Oct 2023 16:52:37 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"type": "text"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Administrador não encontrado.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Cadastrar admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"name": "cache-control",
+								"sortOrder": 2,
+								"infoTitle": "We recommend using this header",
+								"info": "Postman added \"Cache-Control: no-cache\" as a precautionary measure to prevent the server from returning stale response when one makes repeated requests.\n\nYou can remove this header in the app settings or enter a new one with a different value.",
+								"allowedToToggle": false,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to settings",
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "postman-token",
+								"sortOrder": 3,
+								"infoTitle": "We recommend using this header",
+								"info": "The Postman-Token header appends a random UUID to every outgoing request. Postman adds this header for API developers to better debug requests sent and to ensure separate requests appear distinct to the receiving server.\n\nYou can remove this header in the app settings.",
+								"allowedToToggle": false,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to settings",
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "content-type",
+								"sortOrder": 4,
+								"infoTitle": "This header was automatically added",
+								"info": "The Content-Type header is added to help the server identify the media type of the request body that is present in this request.\n\nUse the request body tab to control the value or to remove this header.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to body",
+								"key": "Content-Type",
+								"value": "application/json",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "content-length",
+								"sortOrder": 5,
+								"infoTitle": "This header was automatically added",
+								"info": "The Content-Length header was added to indicate to the server the size of the request body that is added to this request. Server uses this value to parse the request body accurately.\n\nYou can remove the header or enter a new one with a different value.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to body",
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "host",
+								"sortOrder": 6,
+								"infoTitle": "We recommend using this header",
+								"info": "The Host header is added to identify the domain name for which a request is being sent to the server. This header is implicitly sent by every HTTP client.\n\nYou can remove the header or enter a new one with a different value. It is most likely that without this header, your request will return an HTTP 400 error.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "user-agent",
+								"sortOrder": 7,
+								"infoTitle": "We recommend using this header",
+								"info": "The User-Agent header is added to help the server identify Postman as the HTTP requesting application or client.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.32.1",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "accept",
+								"sortOrder": 8,
+								"infoTitle": "We recommend using this header",
+								"info": "The \"Accept: */*\" header is added to tell the server that Postman can understand and process all forms of response content types.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Accept",
+								"value": "*/*",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "accept-encoding",
+								"sortOrder": 9,
+								"infoTitle": "We recommend using this header",
+								"info": "The Accept-Encoding header is added to indicate to the server that Postman HTTP client supports a defined list of content-encoding or compression algorithms as response.\n\nYou can remove the header or enter a new one with a different value. Doing that may not accurately render the response within the app.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "connection",
+								"sortOrder": 10,
+								"infoTitle": "We recommend using this header",
+								"info": "Postman added the Connection header to indicate the server to keep the underlying network connection open once the current response is received. This allows Postman to reuse the same connection for faster response times in subsequent requests to the same server.\n\nYou can remove this header or enter a new one with a different value, such as `Connection: Close` to control this behaviour.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Connection",
+								"value": "keep-alive",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"key": "x-access-token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwidGlwbyI6IkFkbWluaXN0cmFkb3IiLCJpZF9leHRlcm5vIjoxLCJpYXQiOjE2OTgxMDI3NTQsImV4cCI6MTY5ODEwOTk1NH0.KkBd5frhUfSiF2w_xj1d61aKU5QIUmru1JVaIw6C0Ak",
+								"type": "text",
+								"id": 0
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Jamilson\",\r\n    \"email\": \"jamisdelas@hogwartssss.magic\",\r\n    \"senha\": \"malfeitofeito\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/administradores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"administradores"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Cadastrar admin já existente",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Rony\",\r\n    \"email\": \"oruivo@hogwarts.magic\",\r\n    \"senha\": \"malfeitofeito\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/administradores",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"administradores"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "63",
+									"type": "text"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3f-vHsUxME68BVDQgzRr6L8T/pk4bU\"",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Oct 2023 17:01:58 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"type": "text"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Já existe Administrador com essas informações.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Atualizar admin",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"name": "cache-control",
+								"sortOrder": 2,
+								"infoTitle": "We recommend using this header",
+								"info": "Postman added \"Cache-Control: no-cache\" as a precautionary measure to prevent the server from returning stale response when one makes repeated requests.\n\nYou can remove this header in the app settings or enter a new one with a different value.",
+								"allowedToToggle": false,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to settings",
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "postman-token",
+								"sortOrder": 3,
+								"infoTitle": "We recommend using this header",
+								"info": "The Postman-Token header appends a random UUID to every outgoing request. Postman adds this header for API developers to better debug requests sent and to ensure separate requests appear distinct to the receiving server.\n\nYou can remove this header in the app settings.",
+								"allowedToToggle": false,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to settings",
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "content-type",
+								"sortOrder": 4,
+								"infoTitle": "This header was automatically added",
+								"info": "The Content-Type header is added to help the server identify the media type of the request body that is present in this request.\n\nUse the request body tab to control the value or to remove this header.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to body",
+								"key": "Content-Type",
+								"value": "application/json",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "content-length",
+								"sortOrder": 5,
+								"infoTitle": "This header was automatically added",
+								"info": "The Content-Length header was added to indicate to the server the size of the request body that is added to this request. Server uses this value to parse the request body accurately.\n\nYou can remove the header or enter a new one with a different value.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to body",
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "host",
+								"sortOrder": 6,
+								"infoTitle": "We recommend using this header",
+								"info": "The Host header is added to identify the domain name for which a request is being sent to the server. This header is implicitly sent by every HTTP client.\n\nYou can remove the header or enter a new one with a different value. It is most likely that without this header, your request will return an HTTP 400 error.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "user-agent",
+								"sortOrder": 7,
+								"infoTitle": "We recommend using this header",
+								"info": "The User-Agent header is added to help the server identify Postman as the HTTP requesting application or client.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.32.1",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "accept",
+								"sortOrder": 8,
+								"infoTitle": "We recommend using this header",
+								"info": "The \"Accept: */*\" header is added to tell the server that Postman can understand and process all forms of response content types.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Accept",
+								"value": "*/*",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "accept-encoding",
+								"sortOrder": 9,
+								"infoTitle": "We recommend using this header",
+								"info": "The Accept-Encoding header is added to indicate to the server that Postman HTTP client supports a defined list of content-encoding or compression algorithms as response.\n\nYou can remove the header or enter a new one with a different value. Doing that may not accurately render the response within the app.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"name": "connection",
+								"sortOrder": 10,
+								"infoTitle": "We recommend using this header",
+								"info": "Postman added the Connection header to indicate the server to keep the underlying network connection open once the current response is received. This allows Postman to reuse the same connection for faster response times in subsequent requests to the same server.\n\nYou can remove this header or enter a new one with a different value, such as `Connection: Close` to control this behaviour.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Connection",
+								"value": "keep-alive",
+								"system": true,
+								"type": "text"
+							},
+							{
+								"key": "x-access-token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwidGlwbyI6IkFkbWluaXN0cmFkb3IiLCJpZF9leHRlcm5vIjoxLCJpYXQiOjE2OTgxMDI3NTQsImV4cCI6MTY5ODEwOTk1NH0.KkBd5frhUfSiF2w_xj1d61aKU5QIUmru1JVaIw6C0Ak",
+								"type": "text",
+								"id": 0
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"jamis@hogwartssss.magic\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/administradores/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"administradores",
+								"2"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwidGlwbyI6IkFkbWluaXN0cmFkb3IiLCJpZF9leHRlcm5vIjoxLCJpYXQiOjE2OTgxMDI3NTQsImV4cCI6MTY5ODEwOTk1NH0.KkBd5frhUfSiF2w_xj1d61aKU5QIUmru1JVaIw6C0Ak",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ID existente",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"pedrafilosofal@hogwarts.com\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/usuarios/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"usuarios",
+										"2"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "ID inexistente",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"pedrafilosofal@hogwarts.com\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/usuarios/99999",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"usuarios",
+										"99999"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Atualizar admin",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"novoemail@hogwarts.com\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/administradores/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"administradores",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "161",
+									"type": "text"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a1-7nORcjFJRc12kavPeQyP9wwxbrE\"",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Oct 2023 17:26:18 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"type": "text"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 4,\n    \"nome\": \"Jamilson\",\n    \"email\": \"novoemail@hogwarts.com\",\n    \"senha\": \"malfeitofeito\",\n    \"createdAt\": \"2023-10-19T17:19:02.073Z\",\n    \"updatedAt\": \"2023-10-19T17:26:17.839Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Excluir administradores",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/administradores/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"administradores",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Excluir administrador",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/administradores/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"administradores",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49",
+									"type": "text"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"31-dq6NkeOxhYk6wfuvW2mB8ZtWu5E\"",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 21 Oct 2023 22:29:55 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"type": "text"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Administrador removido com sucesso!\"\n}"
+						},
+						{
+							"name": "Excluir administrador inexistente",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/administradores/400",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"administradores",
+										"400"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44",
+									"type": "text"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-IPSoY0zgLOD8flph9u5CCe/nGGs\"",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 21 Oct 2023 22:30:27 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"type": "text"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Administrador não encontrado.\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
 			"name": "especialidades",
 			"item": [
 				{
@@ -627,590 +3181,6 @@
 						}
 					},
 					"response": []
-				}
-			]
-		},
-		{
-			"name": "administradores",
-			"item": [
-				{
-					"name": "Listar todos os administradores",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3001/administradores",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3001",
-							"path": [
-								"administradores"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "Listar todos os administradores",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:3001/administradores",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3001",
-									"path": [
-										"administradores"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "JSON",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express",
-									"type": "text"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8",
-									"type": "text"
-								},
-								{
-									"key": "Content-Length",
-									"value": "148",
-									"type": "text"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"94-wlyw/35B70lE0tJ3p9Bzkz46cdk\"",
-									"type": "text"
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 19 Oct 2023 16:49:27 GMT",
-									"type": "text"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive",
-									"type": "text"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "[\n    {\n        \"id\": 1,\n        \"nome\": \"admin\",\n        \"email\": \"admin@medcheck.com\",\n        \"senha\": \"admin\",\n        \"createdAt\": \"2023-10-18T18:36:49.197Z\",\n        \"updatedAt\": \"2023-10-18T18:36:49.197Z\"\n    }\n]"
-						}
-					]
-				},
-				{
-					"name": "Listar administrador por ID",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3001/administradores/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3001",
-							"path": [
-								"administradores",
-								"1"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "Listar administrador por ID",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:3001/administradores/1",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3001",
-									"path": [
-										"administradores",
-										"1"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "JSON",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express",
-									"type": "text"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8",
-									"type": "text"
-								},
-								{
-									"key": "Content-Length",
-									"value": "146",
-									"type": "text"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"92-EXY83tELmQ0iV4DBfSY7y3pQNbI\"",
-									"type": "text"
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 19 Oct 2023 16:52:21 GMT",
-									"type": "text"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive",
-									"type": "text"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"id\": 1,\n    \"nome\": \"admin\",\n    \"email\": \"admin@medcheck.com\",\n    \"senha\": \"admin\",\n    \"createdAt\": \"2023-10-18T18:36:49.197Z\",\n    \"updatedAt\": \"2023-10-18T18:36:49.197Z\"\n}"
-						},
-						{
-							"name": "Listar administrador com ID inexistente",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:3001/administradores/100",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3001",
-									"path": [
-										"administradores",
-										"100"
-									]
-								}
-							},
-							"status": "Not Found",
-							"code": 404,
-							"_postman_previewlanguage": "JSON",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express",
-									"type": "text"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8",
-									"type": "text"
-								},
-								{
-									"key": "Content-Length",
-									"value": "44",
-									"type": "text"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"2c-IPSoY0zgLOD8flph9u5CCe/nGGs\"",
-									"type": "text"
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 19 Oct 2023 16:52:37 GMT",
-									"type": "text"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive",
-									"type": "text"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"message\": \"Administrador não encontrado.\"\n}"
-						}
-					]
-				},
-				{
-					"name": "Cadastrar admin",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Jamilson\",\r\n    \"email\": \"jamisdelas@hogwartssss.magic\",\r\n    \"senha\": \"malfeitofeito\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3001/administradores",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3001",
-							"path": [
-								"administradores"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "Cadastrar admin já existente",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"nome\": \"Rony\",\r\n    \"email\": \"oruivo@hogwarts.magic\",\r\n    \"senha\": \"malfeitofeito\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:3001/administradores",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3001",
-									"path": [
-										"administradores"
-									]
-								}
-							},
-							"status": "Not Found",
-							"code": 404,
-							"_postman_previewlanguage": "JSON",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express",
-									"type": "text"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8",
-									"type": "text"
-								},
-								{
-									"key": "Content-Length",
-									"value": "63",
-									"type": "text"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"3f-vHsUxME68BVDQgzRr6L8T/pk4bU\"",
-									"type": "text"
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 19 Oct 2023 17:01:58 GMT",
-									"type": "text"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive",
-									"type": "text"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"message\": \"Já existe Administrador com essas informações.\"\n}"
-						}
-					]
-				},
-				{
-					"name": "Atualizar admin",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Novo\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3001/administradores/4",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3001",
-							"path": [
-								"administradores",
-								"4"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "ID existente",
-							"originalRequest": {
-								"method": "PUT",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"email\": \"pedrafilosofal@hogwarts.com\"\r\n}\r\n",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:3001/usuarios/2",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3001",
-									"path": [
-										"usuarios",
-										"2"
-									]
-								}
-							},
-							"_postman_previewlanguage": null,
-							"header": null,
-							"cookie": [],
-							"body": null
-						},
-						{
-							"name": "ID inexistente",
-							"originalRequest": {
-								"method": "PUT",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"email\": \"pedrafilosofal@hogwarts.com\"\r\n}\r\n",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:3001/usuarios/99999",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3001",
-									"path": [
-										"usuarios",
-										"99999"
-									]
-								}
-							},
-							"_postman_previewlanguage": null,
-							"header": null,
-							"cookie": [],
-							"body": null
-						},
-						{
-							"name": "Atualizar admin",
-							"originalRequest": {
-								"method": "PUT",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"email\": \"novoemail@hogwarts.com\"\r\n}\r\n",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:3001/administradores/4",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3001",
-									"path": [
-										"administradores",
-										"4"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "JSON",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express",
-									"type": "text"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8",
-									"type": "text"
-								},
-								{
-									"key": "Content-Length",
-									"value": "161",
-									"type": "text"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"a1-7nORcjFJRc12kavPeQyP9wwxbrE\"",
-									"type": "text"
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 19 Oct 2023 17:26:18 GMT",
-									"type": "text"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive",
-									"type": "text"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"id\": 4,\n    \"nome\": \"Jamilson\",\n    \"email\": \"novoemail@hogwarts.com\",\n    \"senha\": \"malfeitofeito\",\n    \"createdAt\": \"2023-10-19T17:19:02.073Z\",\n    \"updatedAt\": \"2023-10-19T17:26:17.839Z\"\n}"
-						}
-					]
-				},
-				{
-					"name": "Remover usuário",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3001/usuarios/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3001",
-							"path": [
-								"usuarios",
-								"1"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "Remover admin",
-							"originalRequest": {
-								"method": "DELETE",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:3001/usuarios/1",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3001",
-									"path": [
-										"usuarios",
-										"1"
-									]
-								}
-							},
-							"_postman_previewlanguage": null,
-							"header": null,
-							"cookie": [],
-							"body": null
-						},
-						{
-							"name": "Remover usuário comum",
-							"originalRequest": {
-								"method": "DELETE",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:3001/usuarios/2",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3001",
-									"path": [
-										"usuarios",
-										"2"
-									]
-								}
-							},
-							"_postman_previewlanguage": null,
-							"header": null,
-							"cookie": [],
-							"body": null
-						}
-					]
 				}
 			]
 		},
