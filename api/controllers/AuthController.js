@@ -8,10 +8,12 @@ class AuthController {
         }
         try {
             const { email, senha } = request.body;
+
             const usuario = await database.Usuario.unscoped().findOne({ where: { email } });
             if (!usuario) return response.status(404).json({ message: 'Usuário não encontrado!' });
             let type = capitalize(usuario.tipo);
             const foreignModel = await database[type].findOne({ where: { usuarioId: usuario.id } });
+
             if (senha === usuario.senha && foreignModel) {
                 //auth ok
                 const access_token = jwt.sign({ user_id: usuario.id, email: email, tipo: usuario.tipo, id_externo: foreignModel.id }, process.env.JWT_SECRET, {
@@ -23,6 +25,7 @@ class AuthController {
             }
 
         } catch (error) {
+            console.log(error.response ? error.response.data : error.message);
             return response.status(500).json(error.message);
         }
     }
