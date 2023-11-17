@@ -6,15 +6,12 @@ class AuthController {
         function capitalize(string) {
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
-
         try {
             const { email, senha } = request.body;
             const usuario = await database.Usuario.unscoped().findOne({ where: { email } });
-            let type = capitalize(usuario.tipo);
             if (!usuario) return response.status(404).json({ message: 'Usuário não encontrado!' });
-
-            const foreignModel = await database.Usuario.findOne({ where: { tipo: type, id: usuario.id } });
-
+            let type = capitalize(usuario.tipo);
+            const foreignModel = await database[type].findOne({ where: { usuarioId: usuario.id } });
             if (senha === usuario.senha && foreignModel) {
                 //auth ok
                 const access_token = jwt.sign({ user_id: usuario.id, email: email, tipo: usuario.tipo, id_externo: foreignModel.id }, process.env.JWT_SECRET, {
