@@ -4,9 +4,10 @@ const authGuard = require("./middleware/auth");
 const Roles = require('../helpers/roles');
 const router = Router();
 
-router.post("/medicos", MedicoController.criarMedico);
-router.get("/medicos", authGuard([Roles.Admin]), MedicoController.obterMedico);
-router.get("/medicos/:id", authGuard([Roles.Admin, Roles.Medico]), MedicoController.obterMedicoPorId);
+router.get("/medicos", MedicoController.obterMedico);
+router.get("/medicos/:id", MedicoController.obterMedicoPorId);
+router.get("/medicos/especialidades/:id", MedicoController.obterMedicoPorIdDeEspecialidade);
+router.post("/medicos", authGuard([Roles.Admin, Roles.Medico]), MedicoController.criarMedico);
 router.put("/medicos/:id", authGuard([Roles.Admin, Roles.Medico]), MedicoController.atualizarMedico);
 router.delete("/medicos/:id", authGuard([Roles.Admin, Roles.Medico]), MedicoController.removerMedico);
 

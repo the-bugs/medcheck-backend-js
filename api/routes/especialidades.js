@@ -4,12 +4,8 @@ const authGuard = require("./middleware/auth");
 
 const router = Router();
 
-router.get("/especialidades", authGuard(), EspecialidadeController.obterEspecialidades);
-router.get(
-  "/especialidades/:id",
-  authGuard(),
-  EspecialidadeController.obterEspecialidadePorId
-);
+router.get("/especialidades", EspecialidadeController.obterEspecialidades);
+router.get("/especialidades/:id", EspecialidadeController.obterEspecialidadePorId);
 router.post("/especialidades", authGuard(), EspecialidadeController.criarEspecialidade);
 router.put(
   "/especialidades/:id",
