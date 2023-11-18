@@ -1,5 +1,4 @@
 const { Router } = require("express");
-const Especialidade = require("../models/especialidade");
 const EspecialidadeController = require("../controllers/EspecialidadeController");
 const authGuard = require("./middleware/auth");
 
