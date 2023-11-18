@@ -13,6 +13,7 @@ module.exports = {
       usuarioId: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        onDelete: 'CASCADE',
         references: {         // Administrador belongsTo User 1:1
           model: 'Usuarios',
           key: 'id'
