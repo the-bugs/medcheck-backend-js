@@ -1,22 +1,23 @@
 const database = require("../models");
+const Utils = require("../helpers/utils");
 const jwt = require('jsonwebtoken');
 
 class AuthController {
     static async login(request, response) {
-        function capitalize(string) {
-            return string.charAt(0).toUpperCase() + string.slice(1);
-        }
+
         try {
             const { email, senha } = request.body;
 
             const usuario = await database.Usuario.unscoped().findOne({ where: { email } });
             if (!usuario) return response.status(404).json({ message: 'Usuário não encontrado!' });
-            let type = capitalize(usuario.tipo);
+            let type = Utils.capitalize(usuario.tipo);
             const foreignModel = await database[type].findOne({ where: { usuarioId: usuario.id } });
 
             if (senha === usuario.senha && foreignModel) {
                 //auth ok
-                const access_token = jwt.sign({ user_id: usuario.id, email: email, tipo: usuario.tipo, id_externo: foreignModel.id }, process.env.JWT_SECRET, {
+                const access_token = jwt.sign(
+                    { user_id: usuario.id, email: email, tipo: usuario.tipo, id_externo: foreignModel.id },
+                    process.env.JWT_SECRET, {
                     expiresIn: '2h'
                 });
                 return response.json({ auth: true, access_token });
@@ -33,7 +34,8 @@ class AuthController {
     static async me(request, response) {
         try {
             const usuario = request.user;
-            const foreignModel = await database[usuario.tipo].findOne({ where: { usuarioId: usuario.user_id }, include: 'usuario' });
+            const foreignModel =
+                await database[usuario.tipo].findOne({ where: { usuarioId: usuario.user_id }, include: 'usuario' });
 
             if (foreignModel) {
                 return response.json(foreignModel);
@@ -55,7 +57,9 @@ class AuthController {
 
     static singup({ id, email, tipo, id_externo }) {
         try {
-            return jwt.sign({ user_id: id, email, tipo, id_externo }, process.env.JWT_SECRET, {
+            return jwt.sign(
+                { user_id: id, email, tipo, id_externo },
+                process.env.JWT_SECRET, {
                 expiresIn: '2h'
             });
         } catch (error) {
