@@ -6,6 +6,7 @@ const router = Router();
 
 router.get("/medicos", MedicoController.obterMedico);
 router.get("/medicos/:id", MedicoController.obterMedicoPorId);
+router.get("/medicos/especialidades/:id", MedicoController.obterMedicoPorIdDeEspecialidade);
 router.post("/medicos", authGuard([Roles.Admin, Roles.Medico]), MedicoController.criarMedico);
 router.put("/medicos/:id", authGuard([Roles.Admin, Roles.Medico]), MedicoController.atualizarMedico);
 router.delete("/medicos/:id", authGuard([Roles.Admin, Roles.Medico]), MedicoController.removerMedico);

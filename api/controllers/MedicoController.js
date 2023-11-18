@@ -53,6 +53,50 @@ class MedicoController {
     }
   }
 
+  static async obterMedicoPorIdDeEspecialidade(request, response) {
+    const { id } = request.params;
+
+    try {
+      const medicos = await database.Medico.findAll({
+        include: [
+          {
+            model: database.Usuario,
+            as: 'usuario',
+            attributes: ['nome'],
+          },
+          {
+            model: database.Especialidade,
+            as: 'especialidade',
+          },
+        ],
+        attributes: {
+          exclude: [
+            "id",
+            "usuarioId",
+            "sexo",
+            "idEspecialidade",
+            "createdAt",
+            "updatedAt",
+            "especialidade.id",
+            "especialidade.createdAt",
+            "especialidade.updatedAt"
+          ]
+        },
+        where: { idEspecialidade: Number(id) },
+        raw: true,
+      });
+
+      if (medicos.length === 0) {
+        return response.status(404).json({ message: "Nenhum médico encontrado para a especialidade." });
+      }
+
+      return response.status(200).json(medicos);
+    } catch (error) {
+      return response.status(500).json({ message: error.message });
+    }
+  }
+
+
   static async criarMedico(request, response) {
     const { nome, email, senha, numeroRegistro, idEspecialidade, sexo } = request.body;
     if ((nome, email, senha)) {
