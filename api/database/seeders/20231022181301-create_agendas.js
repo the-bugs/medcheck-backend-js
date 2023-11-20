@@ -8,19 +8,22 @@ module.exports = {
       [
         {
           idMedico: 1,
-          dataAgenda: "2023-10-18",
+          dataAgenda: new Date("2023-10-19"),
+          disponivel: true,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
           idMedico: 2,
-          dataAgenda: "2023-10-19",
+          dataAgenda: new Date("2023-10-19"),
+          disponivel: true,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
           idMedico: 3,
-          dataAgenda: "2023-10-20",
+          dataAgenda: new Date("2023-10-20"),
+          disponivel: true,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
