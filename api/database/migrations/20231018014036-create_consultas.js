@@ -1,4 +1,6 @@
 "use strict";
+const tipoConsulta = require("../../helpers/consulta.js");
+
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -21,10 +23,12 @@ module.exports = {
       tipoConsulta: {
         allowNull: true,
         unique: false,
+        defaultValue: tipoConsulta.Particular,
         type: Sequelize.STRING,
       },
       isRealizada: {
-        allowNull: true,
+        allowNull: false,
+        defaultValue: false,
         unique: false,
         type: Sequelize.BOOLEAN,
       },
