@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       dataAgenda: DataTypes.DATE,
       idMedico: DataTypes.INTEGER,
       idPaciente: DataTypes.INTEGER,
+      disponivel: DataTypes.BOOLEAN,
       createdAt: DataTypes.DATE,
       updatedAt: DataTypes.DATE,
     },
