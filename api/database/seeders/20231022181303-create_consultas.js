@@ -1,4 +1,5 @@
 "use strict";
+const tipoConsulta = require("../../helpers/consulta.js");
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -7,31 +8,22 @@ module.exports = {
       "Consultas",
       [
         {
-          idMedico: 1,
-          idPaciente: 1,
-          dataConsulta: "2023-10-18",
-          dataMarcacao: "2023-10-15",
-          tipoConsulta: "Particular",
-          isRealizada: true,
-          createdAt: new Date(),
-          updatedAt: new Date(),
-        },
-        {
-          idMedico: 2,
-          idPaciente: 2,
-          dataConsulta: "2023-10-19",
-          dataMarcacao: "2023-10-16",
-          tipoConsulta: "Particular",
+          idAgenda: 1,
+          dataMarcacao: new Date("2023-10-15"),
           isRealizada: false,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          idMedico: 3,
-          idPaciente: 3,
-          dataConsulta: "2023-10-20",
-          dataMarcacao: "2023-10-17",
-          tipoConsulta: "Convênio",
+          idAgenda: 2,
+          dataMarcacao: new Date("2023-10-16"),
+          isRealizada: false,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          idAgenda: 3,
+          dataMarcacao: new Date("2023-10-17"),
           isRealizada: false,
           createdAt: new Date(),
           updatedAt: new Date(),
