@@ -12,10 +12,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      dataConsulta: {
-        allowNull: false,
-        type: Sequelize.DATE,
-      },
       dataMarcacao: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -32,11 +28,11 @@ module.exports = {
         unique: false,
         type: Sequelize.BOOLEAN,
       },
-      idMedico: {
+      idAgenda: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-          model: "Medicos",
+          model: "Agendas",
           key: "id",
         },
       },
