@@ -7,14 +7,12 @@ module.exports = (sequelize, DataTypes) => {
       Consulta.belongsTo(models.Medico, { as: 'medico', foreignKey: 'idMedico', onDelete: 'cascade' });
     }
   }
-  Consulta.init({
-    dataConsulta: DataTypes.DATE,
-    dataMarcacao: DataTypes.DATE,
-    tipoConsulta: DataTypes.STRING,
-    isRealizada: DataTypes.BOOLEAN,
-    idMedico: DataTypes.INTEGER,
-    idPaciente: DataTypes.INTEGER,
-  }, {
+  Consulta.init(
+    {
+      idAgenda: DataTypes.INTEGER,
+      dataMarcacao: DataTypes.DATE,
+      isRealizada: DataTypes.BOOLEAN,
+    }, {
     sequelize,
     modelName: "Consulta",
     tableName: "Consultas",
