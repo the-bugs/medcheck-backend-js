@@ -13,7 +13,8 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       dataMarcacao: {
-        allowNull: false,
+        allowNull: true,
+        defaultValue: null,
         type: Sequelize.DATE,
       },
       tipoConsulta: {
