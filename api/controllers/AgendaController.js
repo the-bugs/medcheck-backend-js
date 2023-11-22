@@ -41,6 +41,26 @@ class AgendaController {
     }
   }
 
+  static async obterAgendaPorIdMedico(request, response) {
+    const { id } = request.params;
+
+    try {
+      const agenda = await database.Agenda.findAll({
+        where: { idMedico: Number(id) },
+      });
+
+      if (agenda == null || agenda.length == 0) {
+        return response
+          .status(404)
+          .json({ message: "Agenda não encontrada." });
+      }
+      return response.status(200).json(agenda);
+
+    } catch (error) {
+      return response.status(590).json(error.message);
+    }
+  }
+
   static async criarAgenda(request, response) {
     const { dataAgenda, idMedico } = request.body;
 

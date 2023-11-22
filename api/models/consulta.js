@@ -4,17 +4,18 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Consulta extends Model {
     static associate(models) {
-      Consulta.belongsTo(models.Medico, { as: 'medico', foreignKey: 'idMedico', onDelete: 'cascade' });
+      Consulta.belongsTo(models.Agenda, {
+        foreignKey: "idAgenda",
+        as: "agenda",
+      });
     }
   }
-  Consulta.init({
-    dataConsulta: DataTypes.DATE,
-    dataMarcacao: DataTypes.DATE,
-    tipoConsulta: DataTypes.STRING,
-    isRealizada: DataTypes.BOOLEAN,
-    idMedico: DataTypes.INTEGER,
-    idPaciente: DataTypes.INTEGER,
-  }, {
+  Consulta.init(
+    {
+      idAgenda: DataTypes.INTEGER,
+      dataMarcacao: DataTypes.DATE,
+      isRealizada: DataTypes.BOOLEAN,
+    }, {
     sequelize,
     modelName: "Consulta",
     tableName: "Consultas",
