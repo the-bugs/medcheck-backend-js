@@ -89,21 +89,24 @@ class ConsultaController {
         return response.status(404).json({ message: `Agenda com id: ${idAgenda} não encontrada.` });
       }
 
-      if (paciente && agenda) {
-        const consulta = await database.Consulta.create({
-          idAgenda: idAgenda,
-          dataMarcacao: Date.now(),
-          isRealizada: false,
-        });
-
-        await database.Agenda.update(
-          {
-            disponivel: false,
-            idPaciente: idPaciente,
-          }, { where: { id: idAgenda } }
-        );
-        return response.status(201).json(consulta);
+      if (agenda && agenda.idPaciente != null) {
+        return response.status(400).json({ message: `Agenda indisponível para marcação.` });
       }
+
+      const consulta = await database.Consulta.create({
+        idAgenda: idAgenda,
+        dataMarcacao: Date.now(),
+        isRealizada: false,
+      });
+
+      await database.Agenda.update(
+        {
+          disponivel: false,
+          idPaciente: idPaciente,
+        }, { where: { id: idAgenda } }
+      );
+      return response.status(201).json(consulta);
+      
     } catch (error) {
       return response.status(500).json(error.message);
     }
