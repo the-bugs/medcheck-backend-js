@@ -11,7 +11,7 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       dataAgenda: {
-        allowNull: true,
+        allowNull: false,
         type: Sequelize.DATE,
       },
       idMedico: {

@@ -5,10 +5,10 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     return queryInterface.sequelize.transaction(t => {
       return Promise.all([
-        queryInterface.addColumn('Agendas', 'Status', {
+        queryInterface.addColumn('Agendas', 'disponivel', {
           type: Sequelize.BOOLEAN,
           allowNull: false,
-          defaultValue: false,
+          defaultValue: true,
         }, { transaction: t })
       ]);
     });
@@ -18,7 +18,7 @@ module.exports = {
   async down(queryInterface, Sequelize) {
     return queryInterface.sequelize.transaction(t => {
       return Promise.all([
-        queryInterface.removeColumn('Agendas', 'Status', { transaction: t }),
+        queryInterface.removeColumn('Agendas', 'disponivel', { transaction: t }),
       ]);
     });
   }

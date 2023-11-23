@@ -8,6 +8,7 @@ module.exports = {
         queryInterface.addColumn('Agendas', 'idPaciente', {
           type: Sequelize.INTEGER,
           allowNull: true,
+          defaultValue: null,
           after: 'idMedico',
           references: {
             model: "Pacientes",

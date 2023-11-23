@@ -71,7 +71,6 @@ class MedicoController {
         ],
         attributes: {
           exclude: [
-            "id",
             "usuarioId",
             "sexo",
             "idEspecialidade",
