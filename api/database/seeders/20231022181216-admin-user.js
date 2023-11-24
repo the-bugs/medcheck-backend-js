@@ -7,7 +7,7 @@ module.exports = {
       "Usuarios",
       [
         {
-          nome: "Sr. Administrador",
+          nome: "Administrador",
           email: "admin@example.com",
           senha: "senhaAdmin1",
           tipo: "Administrador",

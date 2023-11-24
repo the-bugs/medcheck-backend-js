@@ -7,24 +7,28 @@ module.exports = {
       {
         idPaciente: 1,
         disponivel: false,
-      },
-      { idMedico: 1 }
+      }, { idMedico: 1 }
     );
 
     await queryInterface.bulkUpdate('Agendas',
       {
         idPaciente: 2,
         disponivel: false,
-      },
-      { idMedico: 2 }
+      }, { idMedico: 2 }
     );
 
     await queryInterface.bulkUpdate('Agendas',
       {
         idPaciente: 3,
         disponivel: false,
-      },
-      { idMedico: 3 }
+      }, { idMedico: 3 }
+    );
+
+    await queryInterface.bulkUpdate('Agendas',
+      {
+        idPaciente: null,
+        disponivel: true,
+      }, { id: [4, 5] }
     );
   },
 
